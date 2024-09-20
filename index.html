@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">    
+    <link rel="stylesheet" href="https://use.fortawesome.com/kits/1ce05b4b/publications/128039/woff2.css" media="all">
+    <script src="https://kit.fontawesome.com/05551fc6ea.js" crossorigin="true"></script>
+    <title></title>
+</head>
+<body class="main">
+    <style>
+        body{
+            height: 100%;
+            padding: 0;  
+            flex-grow: 0;
+            overflow:hidden;
+        }
+        h3{
+            margin-left: 5px;
+            margin-right: 5px;   
+        }
+        :root {
+            --bg-color       : #282828;
+            --front-color    : #eeeeeeda;
+            --decor-color    : #573ba1;
+        }
+        p {
+            margin-left: 15px;   
+            margin-right: 10px;               
+        }
+        li, ul{
+            margin-right: 10px; 
+        }
+        a{
+            color:white;
+        }
+        button{
+            background-color: var(--decor-color);
+            color           : var(--front-color);
+            height          : 36px;
+            border          : None;
+            border-radius   : 5px; 
+            padding-left    : 5px;   
+            padding-right   : 5px;   
+        }
+        button:hover{
+            background-color: var(--bg-color );
+            cursor          : pointer;
+            border          : 1px solid;
+        }
+        /*
+        a:link {
+            color      : var(--front-color);      
+        }
+        a:visited {
+            color      : var(--front-color);      
+        }
+        */
+        li{
+            margin: 10px 0;
+        }
+        .box {
+            border-radius   : 5px;   
+            border          : 2px solid var(--decor-color);      
+        }
+        .main {
+            background-color: var(--bg-color) ;
+            color           : var(--front-color);
+            border-radius   : 5px; 
+            font-size       : 18;  
+            text-align: justify;    
+            font-family:Roboto;                     
+        }
+        .updates_container{
+            height: 800px;
+            overflow-y: auto;;
+            scrollbar-color: #999 #333;
+        }
+        .list_and_content_container{
+            height : calc(100%-100px);  
+        }
+        .column {
+            display       : flex; 
+            flex-direction: column; 
+            gap           : 5px;    
+        }
+        .row {
+            display       : flex; 
+            flex-direction: row; 
+            gap           : 5px;        
+        }
+        .centered {
+            margin: 1%;
+        }
+        .tile {
+            background-color         : var(--decor-color);
+            color                    : var(--front-color);
+            border-top-left-radius   : 0px;  
+            border-top-right-radius  : 0px;  
+            margin                   : 0%;
+            padding-left              : 6px;
+        }
+        .tooltip {
+            position     : relative;
+            display      : inline-block;            
+        }
+        
+        .tooltip .tooltiptext {
+            visibility      : hidden;            
+            background-color: black;
+            color           : #fff;
+            text-align      : center;
+            padding         : 5px 0;
+            border-radius   : 6px;       
+            position        : absolute;
+            z-index         : 1;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+    </style>
+    <div style='height: 100%; overflow:none;flex-grow:0'>
+        <div style='height:150px; border-bottom: 1px solid var(--decor-color);' id='header'>
+           <h3>Update history for WineHooks - formerly peixoto's patch</h3>
+           <p>Downloads</p>
+            <div class='row' style='padding-left: 15px; margin-bottom: 0px; padding-bottom: 0px; border-radius: 5px;'>
+                <button style="height:60px;display:flex;padding-top:6px;" onclick="window.open('https://github.com/Daniel-Lobo/WineHooks/releases/download/v0.10.13-Beta/Peixoto.-.0.10.13.-Beta.zip');">
+                    <i class="fa-brands fa-linux" style="font-size:48px;"></i>
+                    <div style="text-align:justify; margin-left:10px;margin-top:6px;margin-right:4px;">
+                    <b>0.10.13 Beta.</b> 1st version wih limited support for Linux (wine).<br>Even on windows
+                    some things in this version are broken
+                    </div>
+                </button> 
+                <button style="height:60px;display:flex;padding-top:6px;" onclick="window.open('https://github.com/Daniel-Lobo/WineHooks/releases/download/v0.10.12/Peixoto.zip');">
+                    <i class="fa-brands fa-windows" style="font-size:48px;"></i>
+                    <div style="text-align:justify; margin-left:10px;margin-top:6px;margin-right:4px;">
+                    <b>0.10.12.</b> Last <i><b>stable</b></i> version, fully functional on windows
+                    </div>
+                </button> 
+                <button style="height:60px;display:flex;padding-top:6px;" onclick="window.open('https://github.com/Daniel-Lobo/WineHooks/releases');">
+                    <i class="fa-solid fa-box-archive" style="font-size:48px;"></i>
+                    <div style="text-align:justify; margin-left:10px;margin-top:6px;margin-right:4px;">
+                    Old versions
+                    </div>
+                </button> 
+                <button style="height:60px;display:flex;padding-top:6px;" onclick="window.open('https://www.patreon.com/user/about?u=44312848');">
+                    <i class="fa-brands fa-patreon" style="font-size:48px;"></i>
+                    <div style="text-align:justify; margin-left:10px;margin-top:6px;margin-right:4px;">
+                    Get and offer support on patreon
+                    </div>
+                </button>                 
+                <!--<button onclick="window.open('https://1drv.ms/u/s!ApHOE-Ru-xkGgZkOtWEHQyuRYq2NWQ?e=VD0U6w');">Download - ver: 0.10.11</button>
+                <button onclick="window.open('https://1drv.ms/u/s!ApHOE-Ru-xkGgrAi36Xs1icstHe4FQ?e=I70kYs');">Download - old versions</button>
+                <button onclick="window.open('https://www.patreon.com/bePatron?u=44312848');">Get and offer support</button>
+                <a href="https://www.patreon.com/bePatron?u=44312848" data-patreon-widget-type="become-patron-button" style="height:60px">Become a Patron!</a>
+                <script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>-->
+            </div>    
+        </div>   
+        <div class='row list_and_content_container'>
+            <div class='column' id='updates_list' style='width: 400px; height:400px;'>       
+                <p style='font-size: 14'>Hover the mouse over the links for a summary of the update</p>         
+            </div>
+            <div class='updates_container' id='updates_contents' style='overflow-y:scroll; width:100%;  border-left: 1px solid var(--decor-color)'>    
+                <div class='centered'>
+                    <h1 class='tile'>Version 0.10.1, beta - September, 22, 2024</h1>
+                    <h3 class='tile'>Initial Linux support and adoption of <a href="https://www.winehq.org/">wine's</a> Direct3D dlls on Windows
+                    </h3>                   
+                    <ul>
+                        <li><b>Linux support:</b>
+                            <ul>
+                                <li>Direct3D 8 and 9 work well, must games are compatible</li> 
+                                <li>OpenGL works except for <a href="https://en.wikipedia.org/wiki/Supersampling">SSAA</a> is broken</li>   
+                                <li>DirectX 7 and earlier: most games crash</li>
+                                <li>Direct3D 10 and latter: untested</li>
+                                <li>UI sections for input and file system hooks are not implemented</li>                             
+                            </ul>        
+                        </li>                        
+                        <li><b>Windows:</b>
+                            <ul>
+                                <li>Direct3D 8 and 9: same compatibility as before, but now using <a href="https://www.winehq.org/">wine's</a> Direct3D dlls.
+                                &nbsp;<a href="https://github.com/doitsujin/dxvk">dxvk<a> option to be added soon</li> 
+                                <li>OpenGL: same as before</li>   
+                                <li>DirectX 7: same as before, <a href="https://www.winehq.org/">wine's</a> dlls not yet adopted</li>
+                                <li>Direct3D 10 and 11 and latter: but now using <a href="https://www.winehq.org/">wine's</a> Direct3D dlls.
+                                &nbsp;<a href="https://github.com/doitsujin/dxvk">dxvk<a> option to be added soon. 
+                                Forced resolution\<a href="https://en.wikipedia.org/wiki/Supersampling">SSAA</a> will also be added for 
+                                both api's on the next updated    
+                                </li> 
+                                <li>Direct3D 12: same bare-bones features as before</li>
+                                <li>UI sections for input and file system hooks are not implemented</li>                                                         
+                            </ul>        
+                        </li>                           
+                    </ul>    
+                </div>                      
+                <div class='centered'>
+                    <h1 class='tile'>Version 0.10.12 - March, 7, 2024</h1>
+                    <h3 class='tile'>DirectDraw\Direct3D - 7 and earlier - Passthrough layer implemented
+                    </h3> 
+                    <h3>   
+                    Passthrough layer for DirectDraw and Direct3D - 7 and earlier - implemented. This is a small software layer between the application and the
+                    DirectDraw\Direct3D implementation which will help integration with <a href="https://www.winehq.org/"> wine</a>: the focus
+                    of version 0.10.13
+                    </h3>   
+                    <ul>
+                        <li><b>DirectDraw and Direct3D - 7 and earlier:</b> Passthrough layer implemented. All currently supported DirectX 7 and earlier games work with the layer</li>
+                        <li><b>Deprecations:</b> Some games were <i>"deprecated"</i>. I can't test over 50 games everytime I make a change that can affect said games, 
+                        so I'm keeping only my favorites and deprecating some. This means that I don't test or offer support for these games anymore, but their profiles
+                        are still included and warnings were added for each deprecated game with the last patch version 
+                        it was tested with. So far, I only deprecated DirectX 7 and earlier games. Deprecated games never use the passtrought layer, you'll have to
+                        create a new profiole if you wish to do so
+                    </li>          
+                    </ul>    
+                </div>
+                <div class='centered'>
+                    <h1 class='tile'>Version 0.10.11 - September, 22, 2023</h1>
+                    <h3 class='tile'>EAX compatiblity expanded, new cheat tables and a few other small additions and fixes
+                    </h3> 
+                    <h3>   
+                    I took my time creating a lot of new cheat tables, it helps with testing, specially with EAX that requires visiting
+                    diferent areas of the game. Almost every supported game now has a cheat table and EAX - versions 1, 2 and 3 - now 
+                    have a pretty decent compatibility, reverb and muffleling. Here are a few other updates:</h3>   
+                    <ul>
+                        <li><b>Max Payne 2 added:</b> Benefits from forced resolution\super sampling anti-aliasing and EAX emulation</li>
+                        <li><b>Direct3D 11:</b> added forced triple buffering</li>  
+                        <li><b>Opengl:</b> fixed the glreadpixels hook. This affects the save game thumbnais on Munch's oddysee when SSAA is enabled</li>  
+                        <li><b>DirectInput:</b> Fixed a bug on the IDirectInputDevice::GetEffectStatus method. With this, force feedback now works correctly on star wars racer</li>          
+                        <li><b>Prince of persia 3D:</b> Fixed a bug that caused the screen not to be cleared before FMV playback</li>
+                        <li><b>Munch's Oddysse:</b> The <i>fix window size</i> option is now enabled by default fixing some crashes</li>
+                        <li><b>Revenant:</b> The map now works correctly on hardware mode. The map normally doesn't work on hardware mode because
+                               the game tries to use a system memory texture to render it. The fix is implemented by copying the texture 
+                               data to a hardware texture and will be made available in future updates as an option to be applyed to any game</li>
+                        <li><b>Silver:</b> Added 60 fps limitation, fixing a lot of bugs</li>
+                        <li><b>Save redirection:</b> The <a href='https://learn.microsoft.com/en-us/windows/win32/api/processenv/nf-processenv-getenvironmentstrings'>
+                        GetEnvironmentStrings</a> hook now handles the APPDATA enviroment variable</li>
+                    </ul>                          
+                </div>
+                <div class='centered'>
+                    <h1 class='tile'>Version 0.10.10 - February, 28, 2023</h1>
+                    <h3 class='tile'>DirectSound focused update
+                    </h3> 
+                    <h3>   
+                        EAX emulation is a work in progress, only eax 1 and 2 are supported and some 
+                        bells and whistles of eax 2.0 reverb are not yet implemented. A better 
+                        implementation will be added in the next update which will also improve some 
+                        aspects of the DirectInput before we can go back to graphics on version
+                        0.10.12. The positional sound implementation however will remain very basic for 
+                        now: distance attenuation, sound cones and a simple left and right panning</h3>         
+                    <h3>Other small fixes on this update</h3>  
+                    <ul>
+                        <li>Changed a single value on the rainworld.ini file which was causing the program not to scale the game window correctly</li>
+                        <li>Updated the <a href='https://learn.microsoft.com/en-us/windows/win32/api/shlobj_core/nf-shlobj_core-shgetknownfolderpath'>
+                            SHGetKnownFolder</a> hook to handle the <a href=' https://learn.microsoft.com/en-us/windows/win32/shell/knownfolderid'>
+                            FOLDERID_SavedGames</a> id</li>
+                    </ul>      
+                </div>
+                <div class='centered'>
+                    <h1 class='tile'>Version 0.10.9 - November, 19, 2022</h1>
+                    <h3 class='tile'>DirectInput focused update
+                    </h3>                    
+                    <h3>DIRECTINPUT</h3>
+                    <ul>
+                        <li> Fixed the reporting of the analog sticks position which as broken in many games  
+                        <li> Fixed mapping of the thumbsticks buttons, whick could be mapped to a different DirectInput button as the one intended
+                        <li> Added support for games the use custom data formats to retrieve gamepad data
+                        <li> Added support for games the retrieve buffered data instead of immediate data 
+                        <li> Improved force feedback support. I know very little games that use force feedback, so this didn't have a lot of testing
+                    </ul>
+                
+                    <h3>OPENGL</h3>   
+                    <ul>
+                        <li>Fixed bugs on the glDrawPixels and glBitmap hooks, Affects Strangers Wrath and blade of darkness
+                        <li>Fixed super sampling anti aliasing, affects Alone in the Dark, Sphinyx, Strangers Wrath and maybe others  
+                    </ul>      
+                        
+                    <h3>DIRECT9</h3>  
+                    <ul>
+                        <li>Fixed a bug rendering texts - used to search for texture and shaders - on Direct3D9Ex
+                        <li>Broke &#x1F610 texture swapping in half life 2
+                    </ul>         
+                    
+                    <h3>ALL GRAPHICS APIS</h3> 
+                    <ul> 
+                        <li>Fixed a bug on the EnumDisplaySettingsExW Hook. When enumerating the current resolution, this function would return the display height 
+                        incorrectly - equal to the width. I found this bug while setting forced resolution on Hyper Light Drifter, a game that doesn't need forced 
+                        resolution, but I aways test all games I play to improve compatibility
+                        <li>Added a GetMessagePos hook. This is used to report the mouse position 'correctly' when forced resolution is enabled       
+                    </ul>    
+                        
+                    <h3>MCI</h3>
+                    <ul>
+                        <li>mciSendCommand: MCI_STATUS (track position), would return position of the next track when time format was milisseconds
+                        <li>mciSendCommand: MCI_PLAY would play the wrong track when time format was milisseconds, this fixes shadows of the empire  
+                    </ul>      
+                        
+                    <h3>FILE REDIRECTION</h3>
+                    <ul>
+                        <li> Fixed bugs on the SHGetKnownFolderPath and SHGetFolderLocation hooks
+                        <li> New hooks to handle games the retrieve the special folders path from enviroment variables 
+                    </ul>   
+                    
+                    <h3>GAME SPECIFIC FIXES</h3>
+                    <ul> 
+                        <li>Wheel of time, fixed a bug on FMV playback that caused the audio the game was playing before the FMV start, to continue playing  
+                        <li>Rainworld, fixed some incorrect values on the ini file which prevented the unfiltered upscaling from working   
+                    </ul>   
+                                        
+                    <h3>NEW GAMES</h3>
+                    <ul> 
+                        <li>5 games that have cheat tables and nothing else: Guacamelee 1 and 2, Ori 1 and 2 and Iconoclasts
+                        <li>3 Games the benefit from forced resolution and also have cheat tables: SIGNALIS, Sphinyx and the cursed mummy and Star trek Klingon honour guard.
+                        The last benefits from several other fixed ass well
+                    </ul>      
+                
+                    <h3>OTHER</h3>
+                    <ul>
+                        <li>Restored compatibility with windows 7. The previous version required Win 8  and latter, this happened in the migration of the build system from 
+                            Qt creator\Qmake to Visual Studio\Cmake, but is fixed now
+                        <li>The GUI now runs on top of MS edge instead of Qt's webengine. This reduces the download size from about 50 MB to 5 MB  
+                        <li> Createprocess hook, When a 32 bit program launches a 64 bit program, the injector fails to 'inject' peixoto's patch on the child program, this wasn't
+                        entirely fixed, but at least in won't prevent the child program from 
+                        starting, this fixes freezing on TR reboot
+                    </ul>      
+                
+                    <h3>CHEAT TABLES</h3>
+                    <ul>
+                        <li> Star trek Deep space nine - the fallen
+                        <li> Star trek Klingon honour guard
+                        <li> The Wheel of time
+                        <li> Iconoclasts  
+                        <li> Half Life 2 and episodes
+                        <li> Ori 1 and 2
+                        <li> Guacamelee 1 and 2
+                        <li> Rune 
+                        <li> Improved Deus Ex Heuristics
+                        <li> SIGNALIS
+                        <li> Fixed one hit kill glitch in control             - uploaded jun 06
+                        <li> Fixed RTCW attaching (still need manual attach)  - uploaded jun 01
+                        <li> Fixed inf Ammo on wolfenstein 2009               - uploaded jun 01 
+                        <li> Septerra core, added one hit kills               - uploaded jun 01 
+                    </ul>        
+                </div>
+                <div class='centered'>
+                    <h1 class='tile'>May, 31, 2022, Small update</h1>
+                    <p> This is still Version 0.10.8, as none of the binaries or scripts were altered. 
+                        I've just updated the Cheat Engine cheat tables - and the accompanying scripts  
+                        that run with my Cheat Engine AutoHotkey plugin - to make them more consistent. 
+                        Now all tables have, as much as possible, similar cheats and hotkeys. The most
+                        common cheats are:</p>
+                    <ul>    
+                        <li>Infinite HP
+                        <li>Easy Kills: this is 1 hit kills on most games, but on some - guacamelee, Control - it is 2 hits, 
+                            and on others - soul reaver - is more complicated 
+                        <li>Infinite Ammo or Magic
+                        <li>Gain currency: money, XP, etc. You press a key to gain a certain amount of
+                          currency. On games that have some kind of currency, this is the best way to 
+                          implement a cheat: it is easy to code, and you don't have to acquire any 
+                          amount of currency before using the cheat
+                    </ul>
+                    <p>Cheat tables are gonna be a thing on Peixoto's patch, many more are coming in
+                    the future, the ones included now are:</p> 
+                    <ul>
+                        <li> Control - DX11 and DX12, only inf HP and easy kill at the moment
+                        <li> DeusEx 
+                        <li> Guacamelee!
+                        <li> Horace
+                        <li> Halo custom edition
+                        <li> Legacy of kain: Blood omen
+                        <li> Legacy of kain: Blood omen 2
+                        <li> Legacy of kain: Soul Reaver
+                        <li> Legacy of kain: Soul Reaver 2
+                        <li> Legacy of kain: Defiance                        
+                        <li> Ori and the blind forest
+                        <li> Return to castle wolfenstein - inf ammo broken
+                        <li> Septerra core - missing inf HP at the moment
+                        <li> Unreal Gold
+                        <li> Wolfenstein - 2009 
+                    </ul>       
+                </div>
+                <div class='centered'>
+                    <h1 class='tile'>Version 0.10.8 - May, 13, 2022</h1>
+                    <h3 class='tile'>Textureswap refactoring and a whole lot more</h3>
+                    <p> This update focused mostly on the texture swap option. I wanted do to a big  
+                        refactoring, share as much code as possible between all the APIs, implement the
+                        auto dump option for all the APIs and solve bugs. In the end, I've made less 
+                        then I originally intended to, because it was taking to long and I really want t
+                        o focus on the passthought layers next. Regardless, a lot was done in this 
+                        update</p>
+                    
+                    <p>    Starting with some additions</p>
+                    <ul>
+                        <li><b>DirectX7:</b> Added the "Alpha textures fix" option. This was created to fix fonts
+                          on Blade of darkness and may solve other bugs on other games that use alpha 
+                          only textures. The correct rendering of fonts on Blade of darkness depends on 
+                          alpha textures returning 1.0 for the color channels when sampled on the pixel 
+                          stage. With the introduction of the programable pipeline, 
+                          <a href='https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/texld---ps-2-0'>
+                          the default  value of the color channels in alpha only textures on the pixel shader was set
+                          to 0.0.</a> On windows vista - and latter,
+                          <a href='https://docs.microsoft.com/en-us/windows-hardware/drivers/display/converting-the-direct3d-fixed-function-state'>
+                          the  Direct3D runtimes implement the fixed function pipeline with shaders</a>
+                         
+                          What I'm guessing happened here was that, at that point, the MS programers did not 
+                          correctly replicated the fixed function alpha textures behavior on the pixel 
+                          shaders emulating the fixed function pipeline.   
+                          This fix is applied by replacing alpha only textures with full RGBA textures 
+                          with the color channels set to 255.
+                          
+                        <li><b>DirectX7 and earlier:</b> Replaced the "FMV fix" option with the "GDI hooks" 
+                          option. The old video for windows API, as well as the earliest DirectShow 
+                          versions and also quicktime output video using GDI. The old "FMV fix" option
+                          hooked 2 GDI functions - BitBlt and StretchBlt - to correctly upscale the FMVs 
+                          when forced resolution is enabled, on games using these APIs. The hooks were 
+                          now expanded - PatBlt, TextOutA and ExtTextOutA - to fix the menus on 
+                          Hyperblade. I find unlikely that this will matter for other games. The 
+                          Hyperblade demo is a Win16 program. So the game was probably Win16 GDI and 
+                          was ported to Win32 Direct3D close to launch, keeping the existing code for 
+                          the menus. Latter DirectDraw\Direct3D games DO use GDI A LOT, but they use GDI 
+                          to draw on a DirectDraw surface, and this is already handled
+                          
+                        <li><b>DirectX7 and earlier:</b> New Win32 hooks. When forced resolution is enabled, some 
+                          Win32 functions the game my call to retrieve the display resolution or window 
+                          size are hooked. DirectDraw\Direct3D games don't use this a lot, so it was 
+                          always handle case by case with game specific scripts. Now a set hooks with 
+                          code common for all APIs is used. A common set of hooks is also used by the
+                          "Fix window size" option. This doesn't change anything for the already
+                          included games, but may help with future inclusions 
+                          
+                        <li><b>DirectX8:</b> IDirect3DDevice8::DrawIndexPrimitive and 
+                          IDirect3DDevice8::DrawIndexPrimitiveUp are now hooked improving forced 
+                          resolution compatibility. Forced resolution is now usable in Project Eden
+                          
+                        <li><b>DirectX9:</b> Added the "Borderless Fullscreen Window" option. This solves some 
+                          bugs when forced resolution is enabled, like games crashing with alt-tab 
+                          
+                        <li><b>DirectX9:</b> Improved the "Fix window size" and added the "Resize window on 
+                          device creation" options. The "Fix window size" option exists for all APIs to 
+                          correctly resize the game window when forced resolution is enabled. On 
+                          Direct3D9 it will never look like the game window was not correctly resized
+                          - except if borderless fullscreen is enabled - because Direct3D9 will not 
+                          clip the output to the window client area, but if the window is not correctly
+                          resized, it will loose focus to the desktop when you click on it 
+                          
+                        <li><b>DirectX 10 and 11:</b> Added the "forced vsync" option
+                        
+                        <li><b>Opengl:</b> Improved forced resolution: The "resolution limit" option was added 
+                          to handle games on which render resolution is not coupled with the display 
+                          resolution. The functions glBitmap, glReadPixels, glDrawPixels, glReadRegion 
+                          and glDrawRegion are now hooked. Improved the hooks on functions used to 
+                          retrieve the display resolution and window size. Mouse hooks are now safe 
+                          if called on a different thread then that making opengl calls
+                        
+                        <li><b>All APIs:</b> added a option to use a default replacement for all texture dumps 
+                          missing a corresponding replacement
+                          
+                        <li>Extended the autodump option to Direct3D 7, 8 and 9 and opengl. This option
+                          is still work in progress, but together with the option above, I can dump and 
+                          replace several texture at once and this helps immensely to find and 
+                          fix bugs. Texture swap as a whole now has a smaller CPU overhead and a much 
+                          smaller memory overhead when dumps are not compiled 
+                    </ul>      
+                          
+                    <p>Now some things that were fixed: </p>  
+                        
+                    <ul>
+                        <li> Fixed autodump dumping all the mipmap levels on DirectX6 and earlier
+                        <li> Fixed textures - and shaders - being dumped but not replaced in DirectX 10
+                        <li> Fixed replacements not working except if they had the same number of mipmaps as the original texture on DirectX 10 and 11
+                        <li> Fixed some textures being replaced, but the replacement being immediately discarded in Opengl - affects Anachronox 
+                        <li> Fixed a bug loading compressed textures on Opengl
+                        <li> Fixed crashes on Max Payne. This bug as quite nasty, because it would cause  the game to crash even if you tried to start it without peixoto's patch. The
+                            "fix" disables texture swapping even if you enable it on the GUI, so it still needs improvement
+                        <li> Fixed unresponsive menus on Die by the sword. This is a simple fix using the "QueryPerformanceCounter fix" option introduced in the previous update
+                        <li> Fixed FMVs in Nocturne: the FMvs are now correctly upscaled. I'm aware of a extremely annoying issue in nocturne in the transition from gameplay to menus.
+                             I'll try to fix it... eventually 
+                        <li> Fixed a bug loading saves in Revenant  
+                        <li> Fixed a memory leak on the MCI emulator                        
+                    </ul>          
+                                             
+                    <p> Finally, 6 new games supported: </p>    
+                    <ul> 
+                        <li> Hyperblade: some glitches on the menus were fixed and also benefits from forced resolution and Super sampling anti-aliasing 
+                        <li> Prince of persia and Bermuda Syndrome: not the original games but sld 
+                          reimplementations of their engines: <a href='https://github.com/NagyD/SDLPoP'>SDL-POP</a> and
+                          <a href='https://github.com/cyxx/bermuda'>bermuda</a> Both benefit from xBRz upscaling
+                        <li> Blade of darkness: Fixed texts and the non working Gamma\Brighness\Conrtrast controls on Direct3D mode. 
+                             Forced resolution and Super sampling anti-aliasing work on both Direct3D and OpenGl
+                        <li> Return to Castle Wolfenstein and Wolfenstein-2009, both benefit from Forced resolution\Super sampling anti-aliasing 
+                    </ul>    
+                </div>
+                <div class='centered'>
+                    <h1 class='tile'>Version 0.10.7 - November, 10, 2021</h1>
+                    <h3 class='tile'>This version was lost and is not included in the old versions download link</h3>
+                    <pre> 
+                      - Refactoring of the Direct3D (9 and earlier) user mode display driver hooks. 
+                        These hooks are used to allow pixel shaders on Direct3D 7 and earlier, allow 
+                        HLSL shaders on Direct3D 8, fix w fog on some Direct3D 7 and earlier games and
+                        to fix a transparency bug on Star wars dark forces II. The refactoring aims to 
+                        improve the maintainability of the code. This hooks will also be the base for 
+                        future fixes related to alpha testing and z bias bugs in some games 
+                        
+                      - Improved the detection of transformed vertices on Direct3D 9 when forced 
+                        resolution is enabled. Transformed vertices have to be correctly detected 
+                        because they have to scaled on the CPU. 
+                        
+                      - Fixed a bug on the IDirect3DSurface8::GetDesc and 
+                        IDirect3DDevice8::CreatePixelShader hooks that crashed some games
+                        
+                      - Improved compatibility of FidelityFx super resolution upscaling on both
+                        Direct3D 11 and 12   
+                        
+                      - Added the QueryPerformanceCounter fix. This fix changes the behavior of the 
+                        QueryPerformanceCounter function to report not the number of counts since 
+                        windows was started, but since the current process was started. This was 
+                        implemented to fix low frame rates on Jade empire, but i've heard of other 
+                        games that need this as well. Since timeGetTime calls are redirected to 
+                        QueryPerformanceCounter when the high resolution timers options is enabled, 
+                        this option can fix games that use that function as well
+                        
+                      - Small refactoring of the Saves redirection feature. A new option to handle 
+                        Xlive games was added. A code path that handled Unreal 1 and 2 games was 
+                        removed, but instructions on how to adapt the system links option to these 
+                        games were added  
+                        
+                      - Integrated a Fix created by others that disables TXAA on control   
+                        
+                      - Added 9 new games: 4 which benefit from forced resolution because they shrink
+                        their UIs, HUD or texts on higher resolutions: Jade Empire, 
+                        Start Trek Elite Force 2, Star Trek: Deep Space Nine - The Fallen and Enclave. 
+                        2 which benefit from  FidelityFx super resolution: The Talos Priciple and 
+                        Death's Door. Finally, another 2 games
+                        on which forced resolution is not entirely necessary, but benefit from it because
+                        it allows super sampling anti aliasing: Star Trek: Voyager - Elite Force 
+                        and Sudeki 
+                    </pre>        
+                </div>
+                <div class='centered'>
+                    <h1 class='tile'>Version 0.10.6 - 03/September, 03, 2021</h1>
+                    <h3 class='tile'>This version was lost and is not included in the old versions download link</h3>
+                    <pre> 
+                        - Direct3D 12 support added. Only one feature supported a the moment,
+                          <a href='Https://Www.Amd.Com/En/Technologies/Radeon-Software-Fidelityfx-Super-Resolution'>FidelityFx super resolution</a>          
+                
+                        - Added FidelityFx super resolution to Direct3D 11 games and removed forced 
+                          resolution in Direct3D 10 and 11 until it is in a more usable state 
+                
+                        - Added an option to set the affinity of threads making calls to Direct3D 8 to a
+                          single core. This option was made to fix crashes in Soul Reaver 2 without 
+                          causing sound glitches - setting single core affinity to the process frequently
+                          causes it - and may be useful in other games too
+                        
+                        - Added FidelityFx super resolution to Unravel two
+                
+                        - Added Control - D3D11 and D3D12 - with FidelityFx super
+                          resolution support
+                      </pre>        
+                </div> 
+            </div>
+        </div>         
+    </div>
+    <script>
+        document.body.onresize = function() {            
+            var header = parseFloat(document.getElementById('header').style.height) + 30;            
+            document.getElementById('updates_list').style.height     = window.innerHeight - header;
+            document.getElementById('updates_contents').style.height = window.innerHeight - header;            
+        }
+        document.body.onresize();
+        var list = document.getElementById('updates_list')
+        for (child of document.getElementById('updates_contents').children)
+        {
+            var div                   = document.createElement('div') ;        
+            var link                  = document.createElement('a');
+            var tooltip               = document.createElement('span');
+            tooltip.className         = 'tooltiptext';
+            tooltip.style.width       = '300px';
+            tooltip.innerHTML         = child.children[1].innerHTML
+            div.className             = 'tooltip';
+            link.taget                = child
+            link.innerHTML            = child.children[0].innerHTML;
+            link.style.fontSize       = '14';
+            //link.style.color          = 'blue';
+            link.style.marginLeft     = '5px';   
+            link.style.marginRight    = '5px'; 
+            link.style.cursor         = 'pointer';
+            link.style.textDecoration = "underline";  
+            link.onclick = function() {
+                this.taget.scrollIntoView();
+            }
+            list.appendChild(div);
+            div.appendChild(link);
+            div.appendChild(tooltip);
+        }
+    </script>
+</body>
+</html>

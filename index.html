@@ -124,7 +124,7 @@
            <h3>Update history for WineHooks - formerly peixoto's patch</h3>
            <p>Downloads</p>
             <div class='row' style='padding-left: 15px; margin-bottom: 0px; padding-bottom: 0px; border-radius: 5px;'>
-                <button style="height:60px;display:flex;padding-top:6px;" onclick="window.open('https://github.com/Daniel-Lobo/WineHooks/releases/download/v0.10.13-Beta/Peixoto.-.0.10.13.-Beta.zip');">
+                <button style="height:60px;display:flex;padding-top:6px;" onclick="window.open('https://github.com/Daniel-Lobo/WineHooks/releases/download/v0.10.13/Peixoto.-.0.10.13.zip');">
                     <i class="fa-solid fa-download" style="font-size:48px;"></i>
                     <div style="text-align:justify; margin-left:10px;margin-top:6px;margin-right:4px;">
                     <b>0.10.13</b> - Latest version. 1st version wih limited support for Linux (wine).<br>Some thinks are still broken on windows,
@@ -159,7 +159,7 @@
                     <h1 class='tile'>Roadmap</h1>
                     <h3 class='tile'>A very loose roadmap</h3>                    
                     <ul>
-                        <li>Fix the broken DirectSound Hooks 
+                        <li>Fix the broken DirectInput Hooks 
                         <li>Complete adoption  of wine on DirectX 6 and earlier
                         <li>Improve Linux compatibility    
                         <li>Add computer shader replacement on Direct3D 11, not because of the feature per se, but because this will be needed for:
@@ -189,8 +189,12 @@
                                 w-fog, xBRz scaling, deinterlacing, forcing\disabling texture filter and therefore these features are currently not implemented</li>                                  
                                 </li> 
                                 <li><b>Direct3D 12:</b> removed FSR support, so for now there are no Direct3D 12 features at all</li>  
-                                <li><b>DirectSound:</b> Just before release, I noticed the directsound hooks were broken, so I disabled all features. This was caused by the
-                                    transition to MingW (I'm suspecting a bad header) and should be fixed soon
+                                <li><b>DirectSound:</b> <strike>Just before release, I noticed the directsound hooks were broken, so I disabled all features. This was caused by the
+                                    transition to MingW (I'm suspecting a bad header) and should be fixed soon</strike>. Fixed a few hours after release which was then 
+                                    updated with the fix
+                                </li>  
+                                <li><b>DirectInput:</b> Another victim of the transition from the visual studio to MingW and the fix doesn't seem simple for now DirectInput to  
+                                    XInput translation is disabled
                                 </li>                                                                                      
                             </ul>        
                         </li>       

@@ -125,22 +125,16 @@
            <p>Downloads</p>
             <div class='row' style='padding-left: 15px; margin-bottom: 0px; padding-bottom: 0px; border-radius: 5px;'>
                 <button style="height:60px;display:flex;padding-top:6px;" onclick="window.open('https://github.com/Daniel-Lobo/WineHooks/releases/download/v0.10.13-Beta/Peixoto.-.0.10.13.-Beta.zip');">
-                    <i class="fa-brands fa-linux" style="font-size:48px;"></i>
+                    <i class="fa-solid fa-download" style="font-size:48px;"></i>
                     <div style="text-align:justify; margin-left:10px;margin-top:6px;margin-right:4px;">
-                    <b>0.10.13 Beta.</b> 1st version wih limited support for Linux (wine).<br>Even on windows
-                    some things in this version are broken
+                    <b>0.10.13</b> - Latest version. 1st version wih limited support for Linux (wine).<br>Some thinks are still broken on windows,
+                    but you can always use an<br> old version                    
                     </div>
-                </button> 
-                <button style="height:60px;display:flex;padding-top:6px;" onclick="window.open('https://github.com/Daniel-Lobo/WineHooks/releases/download/v0.10.12/Peixoto.zip');">
-                    <i class="fa-brands fa-windows" style="font-size:48px;"></i>
-                    <div style="text-align:justify; margin-left:10px;margin-top:6px;margin-right:4px;">
-                    <b>0.10.12.</b> Last <i><b>stable</b></i> version, fully functional on windows
-                    </div>
-                </button> 
+                </button>                 
                 <button style="height:60px;display:flex;padding-top:6px;" onclick="window.open('https://github.com/Daniel-Lobo/WineHooks/releases');">
                     <i class="fa-solid fa-box-archive" style="font-size:48px;"></i>
                     <div style="text-align:justify; margin-left:10px;margin-top:6px;margin-right:4px;">
-                    Old versions
+                    Download old versions
                     </div>
                 </button> 
                 <button style="height:60px;display:flex;padding-top:6px;" onclick="window.open('https://www.patreon.com/user/about?u=44312848');">
@@ -160,36 +154,55 @@
             <div class='column' id='updates_list' style='width: 400px; height:400px;'>       
                 <p style='font-size: 14'>Hover the mouse over the links for a summary of the update</p>         
             </div>
-            <div class='updates_container' id='updates_contents' style='overflow-y:scroll; width:100%;  border-left: 1px solid var(--decor-color)'>    
+            <div class='updates_container' id='updates_contents' style='overflow-y:scroll; width:100%;  border-left: 1px solid var(--decor-color)'>   
                 <div class='centered'>
-                    <h1 class='tile'>Version 0.10.1, beta - September, 22, 2024</h1>
-                    <h3 class='tile'>Initial Linux support and adoption of <a href="https://www.winehq.org/">wine's</a> Direct3D dlls on Windows
-                    </h3>                   
+                    <h1 class='tile'>Roadmap</h1>
+                    <h3 class='tile'>A very loose roadmap</h3>                    
                     <ul>
-                        <li><b>Linux support:</b>
-                            <ul>
-                                <li>Direct3D 8 and 9 work well, must games are compatible</li> 
-                                <li>OpenGL works except for <a href="https://en.wikipedia.org/wiki/Supersampling">SSAA</a> is broken</li>   
-                                <li>DirectX 7 and earlier: most games crash</li>
-                                <li>Direct3D 10 and latter: untested</li>
-                                <li>UI sections for input and file system hooks are not implemented</li>                             
-                            </ul>        
-                        </li>                        
+                        <li>Fix the broken DirectSound Hooks 
+                        <li>Complete adoption  of wine on DirectX 6 and earlier
+                        <li>Improve Linux compatibility    
+                        <li>Add computer shader replacement on Direct3D 11, not because of the feature per se, but because this will be needed for:
+                        <li>Improve forced resolution\SSAA compatibility on Direct3D 11\10  
+                        <li>Start a very very very very basic implementation of Vulkan hooks, which will also be used on Direct3D 12 by employing
+                        <a href="https://github.com/HansKristian-Work/vkd3d-proton">vkd3d</a> on Windows                                                                                                                 
+                    </ul>                         
+                </div> 
+                <div class='centered'>
+                    <h1 class='tile'>Version 0.10.13 - December, 1, 2024</h1>
+                    <h3 class='tile'>Initial Linux support and adoption of <a href="https://www.winehq.org/">wine's</a> Direct3D dlls on Windows
+                    </h3>       
+                    <br>This version was 1st released as a beta as several things on Windows were broken, and while some still are, I decided to promote it
+                    to stable anyway because the biggest hold-ups with the transition were that the UI had to be re-written, as the old one used technologies 
+                    that don't work on Wine, and that I had to switch to a new compiler, but with those out of the way, the few things that remain to be fixed,
+                    should be fixed soon<br>
+                    Here's what has been fixed\added
+                    <ul>
                         <li><b>Windows:</b>
                             <ul>
-                                <li>Direct3D 8 and 9: same compatibility as before, but now using <a href="https://www.winehq.org/">wine's</a> Direct3D dlls.
-                                &nbsp;<a href="https://github.com/doitsujin/dxvk">dxvk<a> option to be added soon</li> 
-                                <li>OpenGL: same as before</li>   
-                                <li>DirectX 7: same as before, <a href="https://www.winehq.org/">wine's</a> dlls not yet adopted</li>
-                                <li>Direct3D 10 and 11 and latter: but now using <a href="https://www.winehq.org/">wine's</a> Direct3D dlls.
-                                &nbsp;<a href="https://github.com/doitsujin/dxvk">dxvk<a> option to be added soon. 
-                                Forced resolution\<a href="https://en.wikipedia.org/wiki/Supersampling">SSAA</a> will also be added for 
-                                both api's on the next updated    
+                                <li><b>Direct3D 8, 9, 10 and 11:</b> <a href="https://www.winehq.org/">Wine's</a> Direct3D dlls, or optionally
+                                <li><b>Direct3D 10 and 11:</b> Forced resolution is finally starting to have a half decent compatibility. Some games can already
+                                benefit from super sampling anti-aliasing and on Inside, I modified the SSAA downsampling step so it won't use filtering
+                                fixing the blur caused by temporal anti-aliasing</li>                                   
+                                <li><b>DirectX 7 and earlier:</b> <a href="https://www.winehq.org/">Wine's</a> dlls not yet adopted, but
+                                as a step towards the transition, I had to remove the Direct3D user mode display driver hooks, which were responsible for things like fixing
+                                w-fog, xBRz scaling, deinterlacing, forcing\disabling texture filter and therefore these features are currently not implemented</li>                                  
                                 </li> 
-                                <li>Direct3D 12: same bare-bones features as before</li>
-                                <li>UI sections for input and file system hooks are not implemented</li>                                                         
+                                <li><b>Direct3D 12:</b> removed FSR support, so for now there are no Direct3D 12 features at all</li>  
+                                <li><b>DirectSound:</b> Just before release, I noticed the directsound hooks were broken, so I disabled all features. This was caused by the
+                                    transition to MingW (I'm suspecting a bad header) and should be fixed soon
+                                </li>                                                                                      
                             </ul>        
-                        </li>                           
+                        </li>       
+                        <li><b>Linux support:</b>
+                            <ul>
+                                <li><b>Direct3D 7, 8 and 9</b> work well, most games are compatible</li> 
+                                <li><b>Direct3D 10 and 11:</b> Compatibility is still restricted, but there are only a few remaining issues that once fixed will expand it</li> 
+                                <li><b>Direct3D 6 and earlier</b> Purely DirectDraw games work, although with a CPU xBRz implementation
+                                    <br>Most Direct3D games crash or have glitches. This is where there is the most work to be done</li> 
+                                <li>OpenGL works except for <a href="https://en.wikipedia.org/wiki/Supersampling">SSAA</a> which is broken</li> 
+                            </ul>        
+                        </li>                                          
                     </ul>    
                 </div>                      
                 <div class='centered'>
@@ -203,11 +216,11 @@
                     </h3>   
                     <ul>
                         <li><b>DirectDraw and Direct3D - 7 and earlier:</b> Passthrough layer implemented. All currently supported DirectX 7 and earlier games work with the layer</li>
-                        <li><b>Deprecations:</b> Some games were <i>"deprecated"</i>. I can't test over 50 games everytime I make a change that can affect said games, 
+                        <li><b>Deprecations:</b> Some games were <i>"deprecated"</i>. I can't test over 50 games every time I make a change that can affect said games, 
                         so I'm keeping only my favorites and deprecating some. This means that I don't test or offer support for these games anymore, but their profiles
                         are still included and warnings were added for each deprecated game with the last patch version 
                         it was tested with. So far, I only deprecated DirectX 7 and earlier games. Deprecated games never use the passtrought layer, you'll have to
-                        create a new profiole if you wish to do so
+                        create a new profile if you wish to do so
                     </li>          
                     </ul>    
                 </div>
@@ -225,13 +238,13 @@
                         <li><b>Opengl:</b> fixed the glreadpixels hook. This affects the save game thumbnais on Munch's oddysee when SSAA is enabled</li>  
                         <li><b>DirectInput:</b> Fixed a bug on the IDirectInputDevice::GetEffectStatus method. With this, force feedback now works correctly on star wars racer</li>          
                         <li><b>Prince of persia 3D:</b> Fixed a bug that caused the screen not to be cleared before FMV playback</li>
-                        <li><b>Munch's Oddysse:</b> The <i>fix window size</i> option is now enabled by default fixing some crashes</li>
+                        <li><b>Munch's Oddysse:</b> The <i>fix window size</i> option is now enabled by default, fixing some crashes</li>
                         <li><b>Revenant:</b> The map now works correctly on hardware mode. The map normally doesn't work on hardware mode because
                                the game tries to use a system memory texture to render it. The fix is implemented by copying the texture 
-                               data to a hardware texture and will be made available in future updates as an option to be applyed to any game</li>
+                               data to a hardware texture and will be made available in future updates as an option to be applied to any game</li>
                         <li><b>Silver:</b> Added 60 fps limitation, fixing a lot of bugs</li>
                         <li><b>Save redirection:</b> The <a href='https://learn.microsoft.com/en-us/windows/win32/api/processenv/nf-processenv-getenvironmentstrings'>
-                        GetEnvironmentStrings</a> hook now handles the APPDATA enviroment variable</li>
+                        GetEnvironmentStrings</a> hook now handles the APPDATA environment variable</li>
                     </ul>                          
                 </div>
                 <div class='centered'>
@@ -260,7 +273,7 @@
                     <h3>DIRECTINPUT</h3>
                     <ul>
                         <li> Fixed the reporting of the analog sticks position which as broken in many games  
-                        <li> Fixed mapping of the thumbsticks buttons, whick could be mapped to a different DirectInput button as the one intended
+                        <li> Fixed mapping of the thumbsticks buttons, which could be mapped to a different DirectInput button as the one intended
                         <li> Added support for games the use custom data formats to retrieve gamepad data
                         <li> Added support for games the retrieve buffered data instead of immediate data 
                         <li> Improved force feedback support. I know very little games that use force feedback, so this didn't have a lot of testing
@@ -295,7 +308,7 @@
                     <h3>FILE REDIRECTION</h3>
                     <ul>
                         <li> Fixed bugs on the SHGetKnownFolderPath and SHGetFolderLocation hooks
-                        <li> New hooks to handle games the retrieve the special folders path from enviroment variables 
+                        <li> New hooks to handle games the retrieve the special folders path from environment variables 
                     </ul>   
                     
                     <h3>GAME SPECIFIC FIXES</h3>
@@ -307,7 +320,7 @@
                     <h3>NEW GAMES</h3>
                     <ul> 
                         <li>5 games that have cheat tables and nothing else: Guacamelee 1 and 2, Ori 1 and 2 and Iconoclasts
-                        <li>3 Games the benefit from forced resolution and also have cheat tables: SIGNALIS, Sphinyx and the cursed mummy and Star trek Klingon honour guard.
+                        <li>3 Games the benefit from forced resolution and also have cheat tables: SIGNALIS, Sphinyx and the cursed mummy and Star trek Klingon honor guard.
                         The last benefits from several other fixed ass well
                     </ul>      
                 

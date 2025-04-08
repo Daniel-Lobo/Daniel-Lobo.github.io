@@ -124,10 +124,10 @@
            <h3>Update history for WineHooks - formerly peixoto's patch</h3>
            <p>Downloads</p>
             <div class='row' style='padding-left: 15px; margin-bottom: 0px; padding-bottom: 0px; border-radius: 5px;'>
-                <button style="height:60px;display:flex;padding-top:6px;" onclick="window.open('https://github.com/Daniel-Lobo/WineHooks/releases/download/v0.10.13/Peixoto.-.0.10.13.zip');">
+                <button style="height:60px;display:flex;padding-top:6px;" onclick="window.open('https://github.com/Daniel-Lobo/WineHooks/releases/download/v0.10.14/Winehooks.0.10.14.zip');">
                     <i class="fa-solid fa-download" style="font-size:48px;"></i>
                     <div style="text-align:justify; margin-left:10px;margin-top:6px;margin-right:4px;">
-                    <b>0.10.13</b> - Latest version. 1st version wih limited support for Linux (wine).<br>Some thinks are still broken on windows,
+                    <b>0.10.14</b> - Latest version. Limited support for Linux (wine).<br>Some thinks are still broken on windows,
                     but you can always use an<br> old version                    
                     </div>
                 </button>                 
@@ -167,6 +167,33 @@
                         <a href="https://github.com/HansKristian-Work/vkd3d-proton">vkd3d</a> on Windows                                                                                                                 
                     </ul>                         
                 </div> 
+                <div class='centered'>
+                    <h1 class='tile'>Version 0.10.14 - April, 8, 2025</h1>
+                    <h3 class='tile'>Rewrite of the UI and minor advancements on Linux support and adoption of <a href="https://www.winehq.org/">wine's</a> Direct3D dlls on Windows
+                    </h3>       
+                    <br>Wine 10 broke the UI completely, so I had to rewrite it<br>
+                    Here's the current status of the ongoing effort to support Linux and adopt of <a href="https://www.winehq.org/">wine's</a> Direct3D dlls on Windows
+                    <ul>
+                        <li><b>Windows:</b>
+                            <ul>
+                                <li><b>Direct3D 8, 9, 10 and 11: can use </b> <a href="https://www.winehq.org/">Wine's</a>, or
+                                <a href="https://github.com/doitsujin/dxvk/releases">dxvk's</a>                                   
+                                <li><b>DirectX 7 and earlier:</b> <a href="https://www.winehq.org/">Wine's</a> dlls not yet adopted, some thigs there were brokne on 0.10.13 
+                                    with the removal of the user driver hooks are still broken</li>                                  
+                                </li>                                                                 
+                            </ul>        
+                        </li>       
+                        <li><b>Linux support:</b>
+                            <ul>
+                                <li><b>Direct3D 8 and 9</b> work well, most games are compatible, but not with <a href="https://github.com/doitsujin/dxvk/releases">dxvk's</a></li> 
+                                <li><b>Direct3D 10 and 11:</b> Compatibility is the same as on windows</li> 
+                                <li><b>Direct3D 6 and earlier</b> Purely DirectDraw games work, although with a CPU xBRz implementation
+                                    <br>Most Direct3D games crash or have glitches. This is where there is the most work to be done</li> 
+                                <li>OpenGL works except for <a href="https://en.wikipedia.org/wiki/Supersampling">SSAA</a> which is broken</li> 
+                            </ul>        
+                        </li>                                          
+                    </ul>    
+                </div>                     
                 <div class='centered'>
                     <h1 class='tile'>Version 0.10.13 - December, 1, 2024</h1>
                     <h3 class='tile'>Initial Linux support and adoption of <a href="https://www.winehq.org/">wine's</a> Direct3D dlls on Windows
